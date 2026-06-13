@@ -8,7 +8,7 @@ const groups = [
 
 export function RecipeNotePanel({ note }: { note: RecipeNote }) {
   return (
-    <section className="ink-panel p-5">
+    <section className="museum-glass p-5">
       <p className="mb-2 font-sans text-xs font-semibold uppercase tracking-[0.22em] text-rain">
         Recipe Note
       </p>
@@ -33,7 +33,7 @@ export function RecipeNotePanel({ note }: { note: RecipeNote }) {
           </div>
         ))}
       </div>
-      <p className="mt-5 border-l border-cinnabar pl-4 text-sm leading-7 text-ink/70">
+      <p className="mt-5 border-l border-amber/70 pl-4 text-sm leading-7 text-ink/70">
         {note.direction}
       </p>
     </section>

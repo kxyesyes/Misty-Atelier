@@ -56,14 +56,14 @@ export function LanyardClient() {
 function StudioPassFallback() {
   return (
     <div className="flex h-[380px] w-full items-center justify-center bg-mist/10 sm:h-[460px]">
-      <div className="ink-panel relative h-72 w-48 border border-mist bg-paper">
+      <div className="relative h-72 w-48 border border-mist bg-paper shadow-sm">
         <div className="absolute -top-24 left-1/2 h-24 w-5 -translate-x-1/2 bg-ink" />
         <div className="absolute inset-4 border border-mist/80" />
         <div className="flex h-full flex-col items-center justify-center px-8 text-center">
           <p className="text-2xl leading-none text-ink">MISTY<br />ATELIER</p>
           <p className="mt-5 font-sans text-[10px] uppercase tracking-[0.22em] text-rain">Studio Pass</p>
           <p className="mt-8 text-sm leading-5 text-rain">Quiet Weather<br />Visual Archive</p>
-          <p className="mt-8 text-4xl text-cinnabar">06</p>
+          <p className="mt-8 text-4xl text-amber">06</p>
         </div>
       </div>
     </div>

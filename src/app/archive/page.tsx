@@ -17,13 +17,13 @@ export default function ArchivePage() {
   const importedCount = Math.max(0, artworks.length - 54);
 
   return (
-    <main className="ink-paper-fibers min-h-screen text-ink">
+    <main className="min-h-screen text-ink">
       <div className="page-x mx-auto max-w-7xl py-10 sm:py-14">
         <FadeIn delay={0.1}>
           <nav className="mb-14">
             <Link
               href="/"
-              className="inline-flex items-center gap-2 font-sans text-xs uppercase tracking-[0.22em] text-rain transition-colors hover:text-cinnabar"
+              className="inline-flex items-center gap-2 font-sans text-xs uppercase tracking-[0.22em] text-rain transition-colors hover:text-amber"
             >
               <ArrowLeft className="h-4 w-4" />
               Index
@@ -32,7 +32,7 @@ export default function ArchivePage() {
 
           <header className="paper-grain mb-14 grid gap-8 border-y border-ink/10 py-10 md:grid-cols-[minmax(0,1fr)_360px] md:items-end md:py-12">
             <div>
-              <p className="kicker mb-4">Archive · 画藏</p>
+              <p className="kicker mb-4">Archive</p>
               <h1 className="max-w-3xl text-5xl leading-none tracking-normal sm:text-7xl">
                 Weather-indexed works.
               </h1>

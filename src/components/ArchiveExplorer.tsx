@@ -93,15 +93,15 @@ export function ArchiveExplorer({ artworks, exhibitions }: ArchiveExplorerProps)
 
   return (
     <div className="grid gap-12 lg:grid-cols-[280px_minmax(0,1fr)] lg:items-start">
-      <aside className="ink-panel relative z-10 px-4 py-3 lg:sticky lg:top-8">
-        <div className="py-5">
-          <label className="flex min-h-11 items-center gap-3 border-b border-ink/12 pb-4 font-sans text-sm text-rain">
+      <aside className="museum-glass relative z-10 px-1 py-2 lg:sticky lg:top-8">
+        <div className="border-y museum-rule py-5">
+          <label className="flex min-h-11 items-center gap-3 border-b border-ink/10 pb-4 font-sans text-sm text-rain">
             <Search className="h-4 w-4 shrink-0" />
             <input
               value={filters.query ?? ""}
               onChange={(event) => setFilters((current) => ({ ...current, query: event.target.value }))}
               placeholder="Search titles, tags, weather..."
-              className="min-w-0 flex-1 border-0 bg-transparent text-ink placeholder:text-rain focus:outline-none"
+              className="min-w-0 flex-1 bg-transparent text-ink placeholder:text-rain"
             />
           </label>
 
@@ -113,7 +113,7 @@ export function ArchiveExplorer({ artworks, exhibitions }: ArchiveExplorerProps)
               <button
                 type="button"
                 onClick={clearFilters}
-                className="inline-flex min-h-10 items-center gap-1.5 font-sans text-xs uppercase tracking-[0.14em] text-rain transition-colors hover:text-cinnabar"
+                className="inline-flex min-h-10 items-center gap-1.5 font-sans text-xs uppercase tracking-[0.14em] text-rain transition-colors hover:text-amber"
               >
                 <X className="h-3.5 w-3.5" />
                 Clear
@@ -121,8 +121,6 @@ export function ArchiveExplorer({ artworks, exhibitions }: ArchiveExplorerProps)
             )}
           </div>
         </div>
-
-        <div className="ink-divider" />
 
         <div className="mt-5 divide-y divide-ink/10 border-b border-ink/10">
           {filterGroups.map((group) => (
@@ -149,10 +147,10 @@ export function ArchiveExplorer({ artworks, exhibitions }: ArchiveExplorerProps)
                       key={option.value}
                       type="button"
                       onClick={() => setFilter(group.key, option.value)}
-                      className={`min-h-11 border px-2.5 py-2 font-sans text-xs leading-none tracking-wide transition-colors ${
+                      className={`min-h-11 rounded-sm border px-2.5 py-2 font-sans text-xs leading-none tracking-wide transition-colors ${
                         isActive
-                          ? "border-cinnabar bg-cinnabar text-paper"
-                          : "border-transparent bg-transparent text-rain hover:border-cinnabar hover:text-ink"
+                          ? "border-ink bg-ink text-paper"
+                          : "border-transparent bg-transparent text-rain hover:border-amber/70 hover:text-ink"
                       }`}
                       style={option.color && !isActive ? { borderColor: `${option.color}66` } : undefined}
                     >
@@ -177,7 +175,7 @@ export function ArchiveExplorer({ artworks, exhibitions }: ArchiveExplorerProps)
                 <button
                   type="button"
                   onClick={() => setVisibleCount((count) => count + visibleWorksStep)}
-                  className="min-h-11 border border-ink/15 px-3 text-ink transition-colors hover:border-cinnabar hover:text-cinnabar"
+                  className="min-h-11 rounded-sm border border-ink/15 px-3 text-ink transition-colors hover:border-amber/70 hover:text-amber"
                 >
                   Load more works
                 </button>
@@ -198,7 +196,7 @@ export function ArchiveExplorer({ artworks, exhibitions }: ArchiveExplorerProps)
               <button
                 type="button"
                 onClick={clearFilters}
-                className="mt-5 font-sans text-xs uppercase tracking-[0.2em] text-rain transition-colors hover:text-cinnabar"
+                className="mt-5 font-sans text-xs uppercase tracking-[0.2em] text-rain transition-colors hover:text-amber"
               >
                 Reset archive
               </button>

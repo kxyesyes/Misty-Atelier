@@ -15,7 +15,7 @@ export function ExhibitionCard({
   return (
     <Link
       href={`/exhibitions/${exhibition.slug}`}
-      className="group ink-panel grid h-full min-h-[250px] overflow-hidden transition-all duration-500 hover:-translate-y-1"
+      className="group grid h-full min-h-[250px] overflow-hidden transition-all duration-500 hover:-translate-y-1"
       style={{
         color: exhibition.palette.foreground,
       }}
@@ -44,7 +44,7 @@ export function ExhibitionCard({
           </div>
         )}
 
-        <div className="flex h-full flex-col justify-between px-4 py-3">
+        <div className="museum-glass flex h-full flex-col justify-between px-4 py-3">
           <div>
             <p
               className="mb-4 text-xs font-sans font-semibold uppercase tracking-[0.22em]"
@@ -52,7 +52,7 @@ export function ExhibitionCard({
             >
               0{exhibition.sortOrder + 1}
             </p>
-            <h3 className="text-2xl leading-tight transition-colors group-hover:text-cinnabar">{exhibition.titleEn}</h3>
+            <h3 className="text-2xl leading-tight">{exhibition.titleEn}</h3>
             <p className="mt-2 text-sm opacity-65">{exhibition.titleZh}</p>
           </div>
           <p className="mt-8 text-sm leading-6 opacity-75">{exhibition.summary}</p>

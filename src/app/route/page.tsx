@@ -16,13 +16,13 @@ export default function RoutePage() {
   const curationPath = getHomeCurationPath();
 
   return (
-    <main className="ink-paper-fibers min-h-screen text-ink">
+    <main className="min-h-screen text-ink">
       <div className="page-x mx-auto max-w-7xl py-10 sm:py-14">
         <FadeIn delay={0.1}>
           <nav className="mb-14">
             <Link
               href="/"
-              className="inline-flex items-center gap-2 font-sans text-xs uppercase tracking-[0.2em] text-rain transition-colors hover:text-cinnabar"
+              className="inline-flex items-center gap-2 font-sans text-xs uppercase tracking-[0.2em] text-rain transition-colors hover:text-amber"
             >
               <ArrowLeft className="h-4 w-4" />
               <span>Index</span>

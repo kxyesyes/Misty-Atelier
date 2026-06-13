@@ -17,13 +17,12 @@ const config: Config = {
         mist: "var(--color-mist)",
         cream: "var(--color-cream)",
         amber: "var(--color-amber)",
-        cinnabar: "var(--color-cinnabar)",
         rain: "var(--color-rain)",
       },
       fontFamily: {
-        sans: ["var(--font-geist-sans)", "Noto Sans SC", "Source Han Sans SC", "ui-sans-serif", "system-ui"],
+        sans: ["var(--font-geist-sans)", "ui-sans-serif", "system-ui"],
         mono: ["var(--font-geist-mono)", "ui-monospace", "SFMono-Regular"],
-        serif: ["Noto Serif SC", "Source Han Serif SC", "Songti SC", "SimSun", "ui-serif", "Georgia", "serif"],
+        serif: ["ui-serif", "Georgia", "Cambria", "Times New Roman", "serif"],
       },
       borderRadius: {
         card: "var(--radius-card)",

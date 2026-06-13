@@ -18,7 +18,7 @@ export function ArtworkInfoPanel({
 
   return (
     <aside className="w-full md:p-2">
-      <p className="mb-4 text-xs uppercase tracking-[0.25em] text-rain font-sans font-semibold">Artwork · 画作</p>
+      <p className="mb-4 text-xs uppercase tracking-[0.25em] text-rain font-sans font-semibold">Artwork</p>
       <h1 className="text-4xl leading-tight tracking-normal text-ink">{artwork.titleEn}</h1>
       <p className="mt-3 text-lg text-rain">{artwork.titleZh}</p>
       {artwork.caption && (
@@ -38,7 +38,7 @@ export function ArtworkInfoPanel({
           <p className="mb-2 text-xs uppercase tracking-[0.22em] text-rain font-sans font-semibold">Exhibition</p>
           <Link
             href={`/exhibitions/${artwork.exhibition}`}
-            className="block text-lg text-ink transition-colors hover:text-cinnabar"
+            className="block text-lg text-ink transition-colors hover:text-amber"
           >
             {exhibition.titleEn}
           </Link>
