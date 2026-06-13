@@ -11,6 +11,7 @@ const archive = read("src/components/ArchiveExplorer.tsx");
 const artworkCard = read("src/components/ArtworkCard.tsx");
 const workPage = read("src/app/works/[slug]/page.tsx");
 const globals = read("src/app/globals.css");
+const tailwind = read("tailwind.config.ts");
 
 assert.doesNotMatch(
   layout,
@@ -33,14 +34,64 @@ assert.match(
   "global CSS should expose a parallax artwork helper"
 );
 assert.match(
+  globals,
+  /--color-cinnabar:\s*#b45a3c/,
+  "ink redesign should define a cinnabar accent token"
+);
+assert.match(
+  globals,
+  /--color-paper:\s*#f7f1e6/,
+  "ink redesign should define a rice-paper background token"
+);
+assert.match(
+  globals,
+  /--color-ink:\s*#1f2528/,
+  "ink redesign should define a dense ink foreground token"
+);
+assert.match(
+  globals,
+  /\.ink-paper-fibers/,
+  "ink redesign should expose a reusable rice-paper fiber texture"
+);
+assert.match(
+  globals,
+  /\.ink-divider/,
+  "ink redesign should expose a brush-like divider utility"
+);
+assert.match(
+  globals,
+  /\.seal-mark/,
+  "ink redesign should expose a cinnabar seal utility"
+);
+assert.match(
+  tailwind,
+  /cinnabar:\s*"var\(--color-cinnabar\)"/,
+  "Tailwind should expose the cinnabar color token"
+);
+assert.match(
+  tailwind,
+  /Noto Serif SC|Songti SC/,
+  "Tailwind serif stack should prefer Chinese serif faces"
+);
+assert.match(
   home,
   /Immersive Theatre|immersive-theatre/,
   "homepage should move from card listing toward an immersive theatre section"
 );
 assert.match(
+  home,
+  /烟雨阁/,
+  "homepage should surface the ink-wash Chinese gallery name"
+);
+assert.match(
   archive,
   /masonry|columns-\[/,
   "archive explorer should use an asymmetrical masonry flow"
+);
+assert.match(
+  archive,
+  /ink-panel|ink-divider/,
+  "archive controls should use ink-style surfaces and dividers"
 );
 assert.doesNotMatch(
   artworkCard,

@@ -59,13 +59,13 @@ export default function WorkPage({ params }: { params: { slug: string } }) {
   const curationPlacement = getCurationRouteForArtwork(work.slug);
 
   return (
-    <main className="min-h-screen overflow-hidden pb-24 text-ink">
+    <main className="ink-paper-fibers min-h-screen overflow-hidden pb-24 text-ink">
       <div className="page-x relative mx-auto grid max-w-7xl gap-12 py-8 sm:py-12 lg:grid-cols-[minmax(360px,0.62fr)_minmax(0,1.05fr)] lg:gap-20 lg:py-16">
         <FadeIn delay={0.1} className="contents">
           <nav className="absolute left-5 top-6 z-10 sm:left-8 md:left-12 md:top-12">
             <Link
               href={`/exhibitions/${work.exhibition}`}
-              className="museum-glass inline-flex items-center gap-2 px-3 py-2 text-xs uppercase tracking-[0.2em] text-rain transition-colors hover:text-amber"
+              className="ink-panel inline-flex items-center gap-2 px-3 py-2 text-xs uppercase tracking-[0.2em] text-rain transition-colors hover:text-cinnabar"
             >
               <ArrowLeft className="h-4 w-4" />
               <span>{exhibition?.titleEn}</span>
@@ -88,7 +88,7 @@ export default function WorkPage({ params }: { params: { slug: string } }) {
               href={work.src}
               target="_blank"
               rel="noreferrer"
-              className="museum-glass absolute bottom-4 right-4 z-20 inline-flex items-center gap-2 px-3 py-2 font-sans text-[10px] uppercase tracking-[0.16em] text-rain transition-colors hover:text-amber"
+              className="ink-panel absolute bottom-4 right-4 z-20 inline-flex items-center gap-2 px-3 py-2 font-sans text-[10px] uppercase tracking-[0.16em] text-rain transition-colors hover:text-cinnabar"
             >
               <Maximize2 className="h-3.5 w-3.5" />
               Open Full Image
@@ -107,7 +107,7 @@ export default function WorkPage({ params }: { params: { slug: string } }) {
         {curationPlacement && (
           <Link
             href={`/exhibitions/${curationPlacement.entry.nextExhibition.slug}`}
-            className="font-sans text-xs uppercase tracking-[0.2em] text-rain transition-colors hover:text-amber sm:col-span-2 sm:justify-self-center"
+            className="font-sans text-xs uppercase tracking-[0.2em] text-rain transition-colors hover:text-cinnabar sm:col-span-2 sm:justify-self-center"
           >
             Continue path: {curationPlacement.entry.nextExhibition.titleEn}
           </Link>
@@ -127,7 +127,7 @@ export default function WorkPage({ params }: { params: { slug: string } }) {
               <p className="mb-2 text-xs uppercase tracking-[0.25em] text-rain">Continue Viewing</p>
               <h2 className="text-3xl leading-tight text-ink">Related Works</h2>
             </div>
-            <Link href={`/exhibitions/${work.exhibition}`} className="text-sm text-rain transition-colors hover:text-amber">
+            <Link href={`/exhibitions/${work.exhibition}`} className="text-sm text-rain transition-colors hover:text-cinnabar">
               Return to {exhibition?.titleEn}
             </Link>
           </div>
@@ -158,7 +158,7 @@ function AdjacentArtworkLink({
   return (
     <Link
       href={`/works/${artwork.slug}`}
-      className={`group museum-glass flex items-center gap-4 p-3 transition-colors hover:text-amber ${
+      className={`group ink-panel flex items-center gap-4 p-3 transition-colors hover:text-cinnabar ${
         align === "right" ? "sm:flex-row-reverse sm:text-right" : ""
       }`}
     >
@@ -173,7 +173,7 @@ function AdjacentArtworkLink({
       </div>
       <div>
         <p className="font-sans text-[10px] uppercase tracking-[0.2em] text-rain">{label}</p>
-        <p className="mt-2 text-lg leading-tight text-ink transition-colors group-hover:text-amber">
+        <p className="mt-2 text-lg leading-tight text-ink transition-colors group-hover:text-cinnabar">
           {artwork.titleEn}
         </p>
       </div>

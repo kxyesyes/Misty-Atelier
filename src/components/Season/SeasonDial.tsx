@@ -1,60 +1,56 @@
 "use client";
 
-import React from "react";
-import { useSeason, Season } from "./SeasonContext";
-import { Play, Pause } from "lucide-react";
+import { Pause, Play } from "lucide-react";
+import { type Season, useSeason } from "./SeasonContext";
 
 const SEASONS: { id: Season; label: string; color: string }[] = [
-  { id: "spring", label: "春", color: "#81c784" },
-  { id: "summer", label: "夏", color: "#ffd54f" },
-  { id: "autumn", label: "秋", color: "#ffb74d" },
-  { id: "winter", label: "冬", color: "#90caf9" },
+  { id: "spring", label: "春", color: "#6f806b" },
+  { id: "summer", label: "夏", color: "#8a7a42" },
+  { id: "autumn", label: "秋", color: "#9b6746" },
+  { id: "winter", label: "冬", color: "#667176" },
 ];
 
 export function SeasonDial() {
   const { season, setSeason, isAutoCycling, setIsAutoCycling, cycleProgress } = useSeason();
 
   return (
-    <div className="fixed bottom-6 left-6 z-50 flex items-center gap-4 rounded-full bg-background/80 p-2 shadow-sm backdrop-blur ring-1 ring-ink/10 transition-colors hover:ring-ink/20">
+    <div className="ink-panel fixed bottom-6 left-6 z-50 flex items-center gap-3 p-2 transition-colors">
       <button
         onClick={() => setIsAutoCycling(!isAutoCycling)}
-        className="flex h-8 w-8 items-center justify-center rounded-full bg-mist/50 text-ink transition-colors hover:bg-mist"
+        className="flex h-8 w-8 items-center justify-center border border-ink/10 bg-mist/40 text-ink transition-colors hover:border-cinnabar hover:bg-mist"
         title={isAutoCycling ? "Pause season cycle" : "Resume season cycle"}
       >
         {isAutoCycling ? <Pause size={14} /> : <Play size={14} />}
       </button>
 
-      <div className="flex gap-2 pr-2">
-        {SEASONS.map((s) => {
-          const isActive = season === s.id;
+      <div className="flex gap-1 pr-1">
+        {SEASONS.map((seasonOption) => {
+          const isActive = season === seasonOption.id;
           return (
             <button
-              key={s.id}
+              key={seasonOption.id}
               onClick={() => {
-                setSeason(s.id);
-                setIsAutoCycling(false); // Pause on manual interaction
+                setSeason(seasonOption.id);
+                setIsAutoCycling(false);
               }}
-              className="relative flex h-8 w-8 items-center justify-center rounded-full text-xs transition-colors"
+              className="relative flex h-8 w-8 items-center justify-center border border-transparent text-xs transition-colors hover:border-cinnabar"
               style={{
-                color: isActive ? s.color : "var(--color-rain)",
+                color: isActive ? seasonOption.color : "var(--color-rain)",
                 fontWeight: isActive ? 600 : 400,
               }}
             >
-              {s.label}
+              {seasonOption.label}
               {isActive && isAutoCycling && (
-                <svg
-                  className="absolute inset-0 h-full w-full -rotate-90"
-                  viewBox="0 0 32 32"
-                >
+                <svg className="absolute inset-0 h-full w-full -rotate-90" viewBox="0 0 32 32">
                   <circle
                     cx="16"
                     cy="16"
-                    r="15"
+                    r="14"
                     fill="none"
-                    stroke={s.color}
+                    stroke={seasonOption.color}
                     strokeWidth="1.5"
-                    strokeDasharray="94"
-                    strokeDashoffset={94 - 94 * cycleProgress}
+                    strokeDasharray="88"
+                    strokeDashoffset={88 - 88 * cycleProgress}
                     className="transition-all duration-1000 ease-linear"
                   />
                 </svg>

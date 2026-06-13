@@ -21,14 +21,14 @@ export default function Home() {
   const routeLabels = ["Route I", "Route II", "Route III", "Route IV", "Route V", "Route VI"];
 
   return (
-    <main className="min-h-screen overflow-hidden text-ink">
+    <main className="ink-paper-fibers min-h-screen overflow-hidden text-ink">
       <nav className="page-x mx-auto flex max-w-7xl flex-col items-start justify-between gap-5 py-7 text-xs font-sans uppercase tracking-[0.22em] sm:flex-row sm:items-center">
-        <Link href="/" className="font-bold transition-colors hover:text-amber">
+        <Link href="/" className="font-bold transition-colors hover:text-cinnabar">
           {site.name}
         </Link>
         <div className="flex flex-wrap gap-x-7 gap-y-3 text-rain">
           {site.navigation.map((item) => (
-            <Link key={item.href} href={item.href} className="font-medium transition-colors hover:text-ink">
+            <Link key={item.href} href={item.href} className="font-medium transition-colors hover:text-cinnabar">
               {item.label}
             </Link>
           ))}
@@ -49,31 +49,38 @@ export default function Home() {
 
         <FadeIn delay={0.1} className="relative z-10 grid min-h-[72vh] gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:items-center">
           <div className="max-w-2xl">
-          <p className="mb-6 text-xs font-sans font-semibold uppercase tracking-[0.28em] text-rain">Immersive Theatre</p>
-          <h1 className="text-balance text-6xl leading-[0.88] tracking-normal sm:text-7xl lg:text-[clamp(5rem,9vw,6rem)]">
-            Misty Atelier
-          </h1>
-          <p className="mt-8 max-w-xl text-lg leading-8 text-rain sm:text-xl">
-            A quiet index of illustrated rooms, weather, and seasonal light.
-          </p>
-          <p className="mt-5 max-w-2xl text-base leading-8 text-ink/70">
-            Misty Atelier is a fictional visual archive for quiet interiors, soft weather,
-            seasonal stations, and distant fables.
-          </p>
-          <div className="mt-9 flex flex-wrap gap-4">
-            <Link
-              href="/route"
-              className="rounded-sm border border-ink bg-ink px-4 py-3 font-sans text-xs uppercase tracking-[0.18em] text-paper transition-colors hover:border-amber hover:bg-amber"
-            >
-              Open Full Route
-            </Link>
-            <Link
-              href="#exhibitions"
-              className="rounded-sm border border-ink/15 px-4 py-3 font-sans text-xs uppercase tracking-[0.18em] text-rain transition-colors hover:border-amber/70 hover:text-ink"
-            >
-              Browse Rooms
-            </Link>
-          </div>
+            <div className="mb-7 flex items-end gap-5">
+              <span className="seal-mark">烟雨</span>
+              <p className="font-sans text-xs font-semibold uppercase tracking-[0.26em] text-rain">
+                Immersive Theatre
+              </p>
+            </div>
+            <h1 className="flex items-start gap-6 text-balance text-6xl leading-[0.88] tracking-normal sm:text-7xl lg:text-[clamp(5rem,9vw,6rem)]">
+              <span className="vertical-title text-[0.92em] leading-none text-cinnabar">烟雨阁</span>
+              <span>Misty Atelier</span>
+            </h1>
+            <div className="ink-divider my-8" />
+            <p className="max-w-xl text-lg leading-8 text-rain sm:text-xl">
+              A quiet index of illustrated rooms, weather, and seasonal light.
+            </p>
+            <p className="mt-5 max-w-2xl text-base leading-8 text-ink/72">
+              Misty Atelier is a fictional visual archive for quiet interiors, soft weather,
+              seasonal stations, and distant fables.
+            </p>
+            <div className="mt-9 flex flex-wrap gap-4">
+              <Link
+                href="/route"
+                className="border border-ink bg-ink px-4 py-3 font-sans text-xs uppercase tracking-[0.18em] text-paper transition-colors hover:border-cinnabar hover:bg-cinnabar"
+              >
+                Open Full Route
+              </Link>
+              <Link
+                href="#exhibitions"
+                className="border border-ink/15 px-4 py-3 font-sans text-xs uppercase tracking-[0.18em] text-rain transition-colors hover:border-cinnabar hover:text-ink"
+              >
+                Browse Rooms
+              </Link>
+            </div>
           </div>
 
         <FadeInStagger className="relative min-h-[560px]">
@@ -97,9 +104,9 @@ export default function Home() {
                     priority={index === 0}
                     quality={100}
                     sizes="(min-width: 1024px) 46vw, 90vw"
-                    className="object-contain transition duration-1000 group-hover:scale-[1.02]"
+                    className="object-contain grayscale-[12%] sepia-[8%] transition duration-1000 group-hover:scale-[1.02] group-hover:grayscale-0"
                   />
-                  <span className="museum-glass absolute bottom-4 left-4 max-w-[80%] px-3 py-2 font-sans text-[10px] uppercase tracking-[0.18em] text-ink opacity-0 transition-opacity group-hover:opacity-100">
+                  <span className="ink-panel absolute bottom-4 left-4 max-w-[80%] px-3 py-2 font-sans text-[10px] uppercase tracking-[0.18em] text-ink opacity-0 transition-opacity group-hover:opacity-100">
                     {work.titleEn}
                   </span>
                 </Link>
@@ -113,9 +120,9 @@ export default function Home() {
       <section id="curation-path" className="page-x section-y mx-auto max-w-7xl">
         <FadeIn delay={0.1} className="mb-12 flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
           <div className="max-w-2xl">
-            <p className="mb-3 text-xs font-sans font-semibold uppercase tracking-[0.25em] text-rain">
-              Guided Archive
-            </p>
+              <p className="mb-3 text-xs font-sans font-semibold uppercase tracking-[0.25em] text-rain">
+                Guided Archive
+              </p>
             <h2 className="text-3xl leading-tight sm:text-4xl">
               Six routes through light, weather, and small fables.
             </h2>
@@ -145,7 +152,7 @@ export default function Home() {
           </div>
           <Link
             href="/route"
-            className="justify-self-start rounded-sm border border-ink/15 px-4 py-3 font-sans text-xs uppercase tracking-[0.18em] text-rain transition-colors hover:border-amber/70 hover:text-ink"
+            className="justify-self-start border border-ink/15 px-4 py-3 font-sans text-xs uppercase tracking-[0.18em] text-rain transition-colors hover:border-cinnabar hover:text-ink"
           >
             View All Routes
           </Link>
@@ -202,7 +209,7 @@ export default function Home() {
       <section id="recipe-notes" className="bg-ink text-paper">
         <div className="page-x section-y mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.7fr_1.3fr]">
           <FadeIn>
-            <p className="mb-3 text-xs font-sans font-semibold uppercase tracking-[0.25em] text-amber">Recipe Notes</p>
+            <p className="mb-3 text-xs font-sans font-semibold uppercase tracking-[0.25em] text-cinnabar">Recipe Notes</p>
             <h2 className="text-3xl leading-tight sm:text-4xl">Small notes behind the atmosphere.</h2>
           </FadeIn>
 
@@ -211,9 +218,9 @@ export default function Home() {
               <FadeInStaggerItem key={note.slug}>
                 <Link
                   href={`/works/${note.slug}`}
-                  className="museum-glass block p-5 transition-colors hover:text-amber"
+                  className="ink-panel block p-5 transition-colors hover:text-cinnabar"
                 >
-                  <p className="text-sm font-sans font-bold uppercase tracking-[0.18em] text-amber">{note.title}</p>
+                  <p className="text-sm font-sans font-bold uppercase tracking-[0.18em] text-cinnabar">{note.title}</p>
                   <p className="mt-4 text-sm leading-7 text-paper/70">{note.content}</p>
                 </Link>
               </FadeInStaggerItem>
@@ -232,7 +239,7 @@ export default function Home() {
               and just enough motion to make the page feel handled rather than displayed.
             </p>
           </FadeIn>
-          <FadeIn delay={0.1} className="paper-grain museum-glass overflow-hidden">
+          <FadeIn delay={0.1} className="ink-panel paper-grain overflow-hidden">
             <LanyardClient />
           </FadeIn>
         </div>
@@ -245,13 +252,13 @@ export default function Home() {
             Finding warmth in the cold, and clarity in the mist.
           </p>
           <div className="mt-10 flex justify-center gap-7 text-sm font-sans text-rain">
-            <a href="mailto:hello@misty-atelier.com" className="transition-colors hover:text-ink">
+            <a href="mailto:hello@misty-atelier.com" className="transition-colors hover:text-cinnabar">
               Email
             </a>
-            <a href="#" className="transition-colors hover:text-ink">
+            <a href="#" className="transition-colors hover:text-cinnabar">
               Instagram
             </a>
-            <a href="#" className="transition-colors hover:text-ink">
+            <a href="#" className="transition-colors hover:text-cinnabar">
               Twitter
             </a>
           </div>

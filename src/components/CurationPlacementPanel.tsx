@@ -15,7 +15,7 @@ export function CurationPlacementPanel({
 
   return (
     <section className="page-x mx-auto mt-10 max-w-7xl border-t border-mist/70 pt-10">
-      <div className="museum-glass grid gap-7 p-5 sm:p-6 lg:grid-cols-[0.58fr_1.42fr] lg:p-7">
+      <div className="ink-panel grid gap-7 p-5 sm:p-6 lg:grid-cols-[0.58fr_1.42fr] lg:p-7">
         <div className="max-w-md">
           <p className="font-sans text-xs font-semibold uppercase tracking-[0.24em] text-rain">
             Route Placement
@@ -34,7 +34,7 @@ export function CurationPlacementPanel({
                 {String(placement.entry.featuredWorks.length).padStart(2, "0")}
               </span>
             )}
-            <Link href="/route" className="transition-colors hover:text-amber">
+            <Link href="/route" className="transition-colors hover:text-cinnabar">
               Full Route
             </Link>
           </div>
@@ -51,8 +51,8 @@ export function CurationPlacementPanel({
                 aria-current={isActive ? "page" : undefined}
                 className={`group p-2 transition-colors ${
                   isActive
-                    ? "text-amber"
-                    : "text-ink hover:text-amber"
+                    ? "text-cinnabar"
+                    : "text-ink hover:text-cinnabar"
                 }`}
               >
                 <div className="floating-art relative aspect-[4/3] overflow-hidden">
@@ -68,7 +68,7 @@ export function CurationPlacementPanel({
                 <p className="mt-3 font-sans text-[10px] uppercase tracking-[0.18em] text-rain">
                   {String(index + 1).padStart(2, "0")}
                 </p>
-                <p className="mt-1 text-base leading-tight text-ink transition-colors group-hover:text-amber">
+                <p className="mt-1 text-base leading-tight text-ink transition-colors group-hover:text-cinnabar">
                   {work.titleEn}
                 </p>
               </Link>

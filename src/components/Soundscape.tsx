@@ -238,7 +238,7 @@ export function Soundscape() {
                 ? { duration: 0 }
                 : { type: "spring", stiffness: 300, damping: 25 }
             }
-            className="mb-3 w-64 rounded-card border border-ink/10 bg-paper/90 p-4 shadow-lg backdrop-blur-md"
+            className="ink-panel mb-3 w-64 p-4"
           >
             {/* Panel header */}
             <div className="flex items-center justify-between border-b border-ink/5 pb-2">
@@ -264,10 +264,10 @@ export function Soundscape() {
                 <button
                   key={track.id}
                   onClick={() => switchTrack(track.id)}
-                  className={`flex min-h-10 items-center justify-between rounded-sm px-2.5 py-2 text-xs transition-all ${
+                  className={`flex min-h-10 items-center justify-between border px-2.5 py-2 text-xs transition-all ${
                     currentTrack === track.id
-                      ? "bg-amber/15 text-ink font-semibold"
-                      : "text-rain hover:bg-ink/5 hover:text-ink"
+                      ? "border-cinnabar bg-cinnabar/10 text-ink font-semibold"
+                      : "border-transparent text-rain hover:border-cinnabar hover:bg-ink/5 hover:text-ink"
                   }`}
                 >
                   <span>{track.name}</span>
@@ -290,7 +290,7 @@ export function Soundscape() {
                 step="0.01"
                 value={volume}
                 onChange={(e) => handleVolumeChange(parseFloat(e.target.value))}
-                className="h-1 w-full cursor-pointer appearance-none rounded-full bg-mist accent-amber [&::-webkit-slider-thumb]:h-2.5 [&::-webkit-slider-thumb]:w-2.5 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-amber"
+                className="h-1 w-full cursor-pointer appearance-none bg-mist accent-cinnabar [&::-webkit-slider-thumb]:h-2.5 [&::-webkit-slider-thumb]:w-2.5 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:bg-cinnabar"
               />
             </div>
           </motion.div>
@@ -301,10 +301,10 @@ export function Soundscape() {
       <div className="flex gap-2">
         <button
           onClick={togglePlay}
-          className={`flex h-11 w-11 items-center justify-center rounded-full border border-ink/10 shadow-md transition-all duration-300 hover:scale-105 active:scale-95 ${
+          className={`flex h-11 w-11 items-center justify-center border border-ink/10 transition-all duration-300 hover:scale-105 active:scale-95 ${
             isPlaying
               ? "bg-ink text-paper"
-              : "bg-paper text-ink hover:border-amber/50"
+              : "bg-paper text-ink hover:border-cinnabar"
           }`}
           aria-label={isPlaying ? "Pause ambient sound" : "Play ambient sound"}
         >
@@ -316,7 +316,7 @@ export function Soundscape() {
                   custom={i}
                   variants={barVariants}
                   animate={shouldReduceMotion ? undefined : "animate"}
-                  className="h-full w-0.5 origin-bottom rounded-full bg-paper"
+                  className="h-full w-0.5 origin-bottom bg-paper"
                 />
               ))}
             </div>
@@ -328,7 +328,7 @@ export function Soundscape() {
         {showSettingsToggle && (
           <button
             onClick={() => setIsOpen((prev) => !prev)}
-            className="flex h-11 w-11 items-center justify-center rounded-full border border-ink/10 bg-paper/90 text-rain shadow-md transition-all duration-300 hover:border-amber/50 hover:text-ink active:scale-95"
+            className="flex h-11 w-11 items-center justify-center border border-ink/10 bg-paper/90 text-rain transition-all duration-300 hover:border-cinnabar hover:text-ink active:scale-95"
             aria-label="Toggle ambient settings panel"
           >
             {isOpen ? (

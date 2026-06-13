@@ -33,7 +33,7 @@ export function CurationTrail({
         </div>
         <Link
           href={`/exhibitions/${entry.nextExhibition.slug}`}
-          className="font-sans text-xs uppercase tracking-[0.18em] text-rain transition-colors hover:text-amber"
+          className="font-sans text-xs uppercase tracking-[0.18em] text-rain transition-colors hover:text-cinnabar"
         >
           Next: {entry.nextExhibition.titleEn}
         </Link>
@@ -47,7 +47,7 @@ export function CurationTrail({
               intact while outpainted sides provide the horizontal composition.
             */}
             <div
-              className={`floating-art relative overflow-hidden ${getArtworkHorizontalPreviewFrameClass(
+              className={`floating-art relative overflow-hidden bg-cream ${getArtworkHorizontalPreviewFrameClass(
                 work.orientation,
               )}`}
             >
@@ -67,13 +67,13 @@ export function CurationTrail({
                 alt={work.titleEn}
                 fill
                 sizes="(min-width: 1024px) 22vw, 90vw"
-                className={`z-10 ${getArtworkHorizontalPreviewImageClass(
+                className={`z-10 grayscale-[10%] sepia-[8%] ${getArtworkHorizontalPreviewImageClass(
                   work.orientation,
                   Boolean(work.wideThumbnail),
-                )} transition duration-700 group-hover:scale-[1.04]`}
+                )} transition duration-700 group-hover:scale-[1.04] group-hover:grayscale-0`}
               />
             </div>
-            <p className="mt-3 text-lg leading-tight text-ink transition-colors group-hover:text-amber">
+            <p className="mt-3 text-lg leading-tight text-ink transition-colors group-hover:text-cinnabar">
               {work.titleEn}
             </p>
             {work.caption && (
