@@ -1,0 +1,47 @@
+{
+  "name": "misty-atelier",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "test": "playwright test",
+    "test:contracts": "tsx src/lib/archive-query.contract.ts && tsx src/lib/artwork-query.contract.ts && tsx src/data/exhibition-contract.test.ts && tsx src/data/image-metadata.contract.ts && tsx src/lib/image-layout.contract.ts && tsx src/lib/weather-engine.contract.ts && tsx src/lib/weather-performance.contract.ts && tsx src/lib/weather-motion.contract.ts && tsx src/lib/atmospheric-particles.contract.ts && tsx src/lib/ui-redesign.contract.ts && tsx src/components/Season/SeasonalOverlay/seasonal-overlays.contract.ts && tsx src/lib/curation-path.contract.ts && tsx src/data/recipe-notes.contract.ts && tsx src/lib/validation-report.contract.ts",
+    "audit:wide": "tsx scripts/audit_wide_assets.ts",
+    "validate": "npm run test:contracts && npm run audit:wide && npx tsc --noEmit --pretty false && npm run lint && npm run build",
+    "images:scan": "python scripts/generate_image_metadata.py",
+    "images:scan9x16": "python scripts/scan_9_16_candidates.py",
+    "images:import9x16": "python scripts/import_9_16_assets.py",
+    "images:generate-imported-data": "python scripts/generate_imported_artworks.py",
+    "images:refresh": "npm run images:scan9x16 && npm run images:import9x16 && npm run images:generate-imported-data && npm run images:scan",
+    "prepare:wide": "python scripts/prepare_wide_outpainting_inputs.py"
+  },
+  "dependencies": {
+    "@react-three/drei": "^9.122.0",
+    "@react-three/fiber": "^8.18.0",
+    "@react-three/rapier": "^1.5.0",
+    "clsx": "^2.1.1",
+    "framer-motion": "^12.40.0",
+    "lucide-react": "^1.17.0",
+    "meshline": "^3.3.1",
+    "next": "14.2.35",
+    "react": "^18",
+    "react-dom": "^18",
+    "tailwind-merge": "^3.6.0",
+    "three": "^0.160.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.60.0",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.35",
+    "postcss": "^8",
+    "tailwindcss": "^3.4.1",
+    "tsx": "^4.22.3",
+    "typescript": "^5"
+  }
+}
